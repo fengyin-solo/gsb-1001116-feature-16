@@ -14,7 +14,7 @@
     </div>
     <table class="data-table">
       <thead>
-        <tr><th>业务模块</th><th>今日新增</th><th>待处理</th><th>异常量</th></tr>
+        <tr><th>业务模块</th><th>今日新增</th><th>待处理</th><th>异常量</th><th>高风险</th><th>中风险</th><th>低风险</th></tr>
       </thead>
       <tbody>
         <tr v-for="row in moduleRows" :key="row.name">
@@ -22,6 +22,9 @@
           <td>{{ row.created }}</td>
           <td>{{ row.pending }}</td>
           <td>{{ row.abnormal }}</td>
+          <td><span v-if="row.high_risk" class="risk-tag risk-高">{{ row.high_risk }}</span><span v-else>—</span></td>
+          <td><span v-if="row.medium_risk" class="risk-tag risk-中">{{ row.medium_risk }}</span><span v-else>—</span></td>
+          <td><span v-if="row.low_risk" class="risk-tag risk-低">{{ row.low_risk }}</span><span v-else>—</span></td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +38,7 @@ import { fetchJson } from '@/api/client'
 
 type Overview = {
   cards: { label: string; value: number }[]
-  modules: { name: string; created: number; pending: number; abnormal: number }[]
+  modules: { name: string; created: number; pending: number; abnormal: number; high_risk?: number; medium_risk?: number; low_risk?: number }[]
 }
 
 const cards = ref<Overview['cards']>([])

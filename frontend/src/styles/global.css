@@ -33,3 +33,21 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+
+/* 阈值复核矩阵：页签与风险等级 */
+.tab-bar { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin: 8px 0 14px; }
+.tab-item { border: none; background: none; padding: 8px 16px; cursor: pointer; font-size: 14px; color: var(--muted); border-bottom: 2px solid transparent; }
+.tab-item.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
+.risk-tag { display: inline-block; border-radius: 10px; padding: 1px 10px; font-size: 12px; }
+.risk-高 { background: #fee4e2; color: #b42318; border: 1px solid #fecdca; }
+.risk-中 { background: #fef0c7; color: #b54708; border: 1px solid #fedf89; }
+.risk-低 { background: #dcfae6; color: #027a48; border: 1px solid #abefc6; }
+.conclusion-更换 { color: #b42318; font-weight: 600; }
+.conclusion-维修 { color: #b54708; font-weight: 600; }
+.conclusion-巡检 { color: #027a48; }
+.panel-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.matrix-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+.matrix-form label { font-size: 12px; color: var(--muted); }
+.matrix-form input { display: block; margin-top: 2px; padding: 4px 8px; border: 1px solid var(--border); border-radius: 6px; width: 110px; }
+.group-ok { color: #027a48; }
+.group-fail { color: #b42318; }

@@ -50,6 +50,8 @@ class BearingService:
         entry = store.find(MODULE, entry_id)
         if entry is None:
             return None, f"桥梁支座 {entry_id} 不存在或已归档"
+        if entry.get("历史支座"):
+            return None, "历史支座继续按原检查记录保留，不执行状态流转动作"
         if action not in ACTION_RULES:
             return None, f"动作「{action}」不属于支座维护可执行范围"
         target = ACTION_RULES[action]
